@@ -9,10 +9,17 @@ const { t } = Astro.props;
   <div class="max-w-6xl mx-auto px-6">
 
     <div class="grid lg:grid-cols-3 gap-16">
-      <!-- Label -->
+      <!-- Label + photo -->
       <div>
         <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">01</p>
-        <h2 class="text-3xl font-black">{t.about.title}</h2>
+        <h2 class="text-3xl font-black mb-8">{t.about.title}</h2>
+        <div class="overflow-hidden rounded-2xl">
+          <img
+            src="/images/about-jorge.jpg"
+            alt="Jorge García Betanzos"
+            class="w-full object-cover object-top"
+          />
+        </div>
       </div>
 
       <!-- Content -->
