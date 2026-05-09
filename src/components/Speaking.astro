@@ -46,6 +46,21 @@ const { t } = Astro.props;
       ))}
     </div>
 
+    <!-- Photo gallery -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-16">
+      {[
+        { src: '/images/speaking-eshow-audience.jpg', alt: 'E-Show Madrid' },
+        { src: '/images/speaking-idealo.jpg', alt: 'Idealo Berlin' },
+        { src: '/images/speaking-mts23.jpg', alt: 'Madrid Tech Show 2023' },
+        { src: '/images/speaking-panel.jpg', alt: 'Panel discussion' },
+        { src: '/images/speaking-ecommercenews.jpg', alt: 'Ecommerce News Congress' },
+      ].map((photo) => (
+        <div class="overflow-hidden rounded-xl aspect-video">
+          <img src={photo.src} alt={photo.alt} class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
+        </div>
+      ))}
+    </div>
+
     <!-- CTA -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-8 rounded-2xl border border-accent/20 bg-accent/5">
       <div class="flex-1">
