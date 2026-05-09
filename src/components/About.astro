@@ -1,0 +1,61 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+---
+
+<section id="sobre-mi" class="py-32 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-3 gap-16">
+      <!-- Label -->
+      <div>
+        <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">01</p>
+        <h2 class="text-3xl font-black">{t.about.title}</h2>
+      </div>
+
+      <!-- Content -->
+      <div class="lg:col-span-2">
+        <div class="space-y-5 text-muted leading-relaxed mb-10">
+          {t.about.paragraphs.map((p: string) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          {t.about.tags.map((tag: string) => (
+            <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-white/10 text-white/60 hover:border-accent/50 hover:text-accent transition-all cursor-default">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <!-- Timeline -->
+        <div class="mt-14 space-y-6 border-l border-white/10 pl-6">
+          <div class="relative">
+            <div class="absolute -left-[25px] top-1 w-2 h-2 rounded-full bg-accent"></div>
+            <p class="text-xs text-muted mb-1">2025 → Presente</p>
+            <p class="text-sm font-medium">Mentor · SeedRocket</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[25px] top-1 w-2 h-2 rounded-full bg-white/30"></div>
+            <p class="text-xs text-muted mb-1">2014 → Presente</p>
+            <p class="text-sm font-medium">CEO & Cofundador · Runnea</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[25px] top-1 w-2 h-2 rounded-full bg-white/30"></div>
+            <p class="text-xs text-muted mb-1">2004 → 2016</p>
+            <p class="text-sm font-medium">Senior Consultant → Programador · Sarenet</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[25px] top-1 w-2 h-2 rounded-full bg-white/10"></div>
+            <p class="text-xs text-muted mb-1">1995 → 1999</p>
+            <p class="text-sm font-medium">Licenciatura · Universidad del País Vasco</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

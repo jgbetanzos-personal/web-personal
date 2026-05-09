@@ -1,0 +1,86 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+---
+
+<section id="contacto" class="py-32 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-3 gap-16">
+      <div>
+        <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">05</p>
+        <h2 class="text-3xl font-black">{t.contact.title}</h2>
+        <p class="text-muted leading-relaxed mt-4 text-sm">{t.contact.description}</p>
+
+        <div class="mt-10 space-y-4">
+          <p class="text-xs text-muted uppercase tracking-widest mb-3">{t.contact.or}</p>
+          <a href="mailto:jorge.garcia@runnea.com" class="block text-sm hover:text-accent transition-colors">
+            jorge.garcia@runnea.com
+          </a>
+          <a href="https://www.linkedin.com/in/jgbetanzos" target="_blank" rel="noopener noreferrer" class="block text-sm text-muted hover:text-accent transition-colors">
+            linkedin.com/in/jgbetanzos
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-2">
+        <form
+          name="contact"
+          method="POST"
+          class="space-y-4"
+        >
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder={t.contact.namePlaceholder}
+                class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors"
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder={t.contact.emailPlaceholder}
+                class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors"
+              />
+            </div>
+          </div>
+          <textarea
+            name="message"
+            required
+            rows={6}
+            placeholder={t.contact.messagePlaceholder}
+            class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors resize-none"
+          ></textarea>
+          <button
+            type="submit"
+            class="inline-flex items-center gap-2 px-8 py-3 bg-accent text-black text-sm font-bold rounded-full hover:bg-accent-dark transition-colors"
+          >
+            {t.contact.send}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-white/5 py-8">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <p class="text-muted text-xs">{t.footer.copy}</p>
+    <div class="flex gap-6 text-xs text-muted">
+      <a href="https://www.runnea.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Runnea</a>
+      <a href="https://runnea.academy" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Academy</a>
+      <a href="https://www.linkedin.com/in/jgbetanzos" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
+    </div>
+  </div>
+</footer>

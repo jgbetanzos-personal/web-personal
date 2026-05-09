@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import Runnea from '../../components/Runnea.astro';
+import Speaking from '../../components/Speaking.astro';
+import Press from '../../components/Press.astro';
+import Contact from '../../components/Contact.astro';
+import { es } from '../../i18n/es';
+
+const t = es;
+---
+
+<Layout
+  title="Jorge García Betanzos — Founder & CEO Runnea | Speaker"
+  lang="es"
+  description="Jorge García Betanzos, CEO y cofundador de Runnea. Speaker en ecommerce, SEO y sport tech. 1.5M visitas mensuales, 100% orgánico."
+>
+  <Nav t={t} />
+  <main>
+    <Hero t={t} />
+    <About t={t} />
+    <Runnea t={t} />
+    <Speaking t={t} />
+    <Press t={t} />
+    <Contact t={t} />
+  </main>
+</Layout>

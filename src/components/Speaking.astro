@@ -1,0 +1,65 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+---
+
+<section id="ponencias" class="py-32 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-3 gap-16 mb-16">
+      <div>
+        <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">03</p>
+        <h2 class="text-3xl font-black">{t.speaking.title}</h2>
+      </div>
+      <div class="lg:col-span-2">
+        <p class="text-muted leading-relaxed mb-8">{t.speaking.description}</p>
+        <!-- Topics -->
+        <div>
+          <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">{t.speaking.topicsTitle}</p>
+          <div class="flex flex-wrap gap-2">
+            {t.speaking.topics.map((topic: string) => (
+              <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/20">
+                {topic}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Talks list -->
+    <div class="space-y-3 mb-16">
+      {t.speaking.talks.map((talk: any, i: number) => (
+        <div class="group flex flex-col md:flex-row md:items-center gap-4 p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-all">
+          <div class="flex-shrink-0 w-8 text-muted text-xs font-mono">{String(i + 1).padStart(2, '0')}</div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs text-muted mb-1">{talk.event} · {talk.location} · {talk.date}</p>
+            <p class="text-sm font-medium text-white leading-snug">{talk.title}</p>
+            <p class="text-xs text-muted mt-1">{talk.audience}</p>
+          </div>
+          {talk.lang === 'EN' && (
+            <span class="flex-shrink-0 text-xs font-bold px-2 py-1 rounded bg-accent/10 text-accent border border-accent/20">EN</span>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-8 rounded-2xl border border-accent/20 bg-accent/5">
+      <div class="flex-1">
+        <p class="font-bold text-lg">{t.speaking.cta}</p>
+        <p class="text-muted text-sm mt-1">jorge.garcia@runnea.com</p>
+      </div>
+      <a
+        href="#contacto"
+        class="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-accent text-black text-sm font-bold rounded-full hover:bg-accent-dark transition-colors"
+      >
+        {t.nav.contact}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>

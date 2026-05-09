@@ -1,0 +1,56 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+
+const partners = ['Nike', 'ASICS', 'Amazon', 'Adidas', 'New Balance', 'Mizuno', 'Sprinter', 'Salomon', 'Decathlon', 'HOKA', 'Garmin', 'El Corte Inglés'];
+---
+
+<section id="runnea" class="py-32 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-3 gap-16 mb-20">
+      <div>
+        <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">02</p>
+        <h2 class="text-3xl font-black">{t.runnea.title}</h2>
+      </div>
+      <div class="lg:col-span-2">
+        <p class="text-muted leading-relaxed mb-8">{t.runnea.description}</p>
+        <div class="flex gap-3 flex-wrap">
+          <a href="https://www.runnea.com" target="_blank" rel="noopener noreferrer"
+            class="text-xs font-medium px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-accent/50 hover:text-accent transition-all">
+            runnea.com →
+          </a>
+          <a href="https://runnea.academy" target="_blank" rel="noopener noreferrer"
+            class="text-xs font-medium px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-accent/50 hover:text-accent transition-all">
+            runnea.academy →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-20">
+      {t.runnea.stats.map((stat: { value: string; label: string }) => (
+        <div class="p-6 rounded-2xl bg-surface border border-white/5 group hover:border-accent/20 transition-all">
+          <p class="text-3xl font-black text-white group-hover:text-accent transition-colors">{stat.value}</p>
+          <p class="text-muted text-sm mt-1">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Partners -->
+    <div>
+      <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-8">{t.runnea.partnersTitle}</p>
+      <div class="flex flex-wrap gap-3">
+        {partners.map((partner) => (
+          <span class="text-sm font-medium px-4 py-2 rounded-full bg-white/5 border border-white/5 text-white/50">
+            {partner}
+          </span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

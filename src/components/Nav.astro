@@ -1,0 +1,51 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+const isEs = t.lang === 'es';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-md">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href={isEs ? '/es' : '/en'} class="text-sm font-semibold tracking-tight text-white hover:text-accent transition-colors">
+      JGB
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 text-sm text-muted">
+      <li><a href="#sobre-mi" class="hover:text-white transition-colors">{t.nav.about}</a></li>
+      <li><a href="#runnea" class="hover:text-white transition-colors">Runnea</a></li>
+      <li><a href="#ponencias" class="hover:text-white transition-colors">{t.nav.speaking}</a></li>
+      <li><a href="#prensa" class="hover:text-white transition-colors">{t.nav.press}</a></li>
+      <li><a href="#contacto" class="hover:text-white transition-colors">{t.nav.contact}</a></li>
+    </ul>
+
+    <div class="flex items-center gap-4">
+      <a
+        href={t.nav.langSwitchUrl}
+        class="text-xs font-medium px-3 py-1.5 border border-white/20 rounded-full text-muted hover:text-white hover:border-white/40 transition-all"
+      >
+        {t.nav.langSwitch}
+      </a>
+      <a
+        href="#contacto"
+        class="hidden md:inline-flex text-xs font-semibold px-4 py-2 bg-accent text-black rounded-full hover:bg-accent-dark transition-colors"
+      >
+        {t.nav.contact}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector((e.currentTarget as HTMLAnchorElement).getAttribute('href')!);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
