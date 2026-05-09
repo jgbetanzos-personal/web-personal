@@ -27,30 +27,25 @@ const { t } = Astro.props;
 
       <!-- Form -->
       <div class="lg:col-span-2">
-        <form
-          name="contact"
-          method="POST"
-          class="space-y-4"
-        >
+        <form id="contact-form" class="space-y-4">
+          <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
+          <input type="hidden" name="subject" value="Nuevo mensaje desde jgbetanzos.com" />
+          <input type="hidden" name="from_name" value="Web Personal" />
           <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder={t.contact.namePlaceholder}
-                class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder={t.contact.emailPlaceholder}
-                class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors"
-              />
-            </div>
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder={t.contact.namePlaceholder}
+              class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors"
+            />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder={t.contact.emailPlaceholder}
+              class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors"
+            />
           </div>
           <textarea
             name="message"
@@ -59,19 +54,54 @@ const { t } = Astro.props;
             placeholder={t.contact.messagePlaceholder}
             class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-white text-sm placeholder:text-muted focus:outline-none focus:border-accent/50 transition-colors resize-none"
           ></textarea>
-          <button
-            type="submit"
-            class="inline-flex items-center gap-2 px-8 py-3 bg-accent text-black text-sm font-bold rounded-full hover:bg-accent-dark transition-colors"
-          >
-            {t.contact.send}
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="flex items-center gap-4">
+            <button
+              type="submit"
+              id="submit-btn"
+              class="inline-flex items-center gap-2 px-8 py-3 bg-accent text-black text-sm font-bold rounded-full hover:bg-accent-dark transition-colors disabled:opacity-50"
+            >
+              {t.contact.send}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p id="form-status" class="text-sm hidden"></p>
+          </div>
         </form>
       </div>
     </div>
 
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const status = document.getElementById('form-status') as HTMLParagraphElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    status.className = 'text-sm text-muted';
+    status.textContent = '...';
+
+    const data = Object.fromEntries(new FormData(form));
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+
+    if (json.success) {
+      status.className = 'text-sm text-accent';
+      status.textContent = '✓ Mensaje enviado';
+      form.reset();
+    } else {
+      status.className = 'text-sm text-red-400';
+      status.textContent = 'Error al enviar. Inténtalo de nuevo.';
+    }
+    btn.disabled = false;
+  });
+</script>
 
 <!-- Footer -->
 <footer class="border-t border-white/5 py-8">
