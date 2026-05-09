@@ -3,6 +3,13 @@ interface Props {
   t: any;
 }
 const { t } = Astro.props;
+
+const talkPhotos: Record<string, string> = {
+  'Workshop Idealo': '/images/speaking-idealo.jpg',
+  'eShow Madrid': '/images/speaking-eshow-audience.jpg',
+  'eCommerce News Congress': '/images/speaking-ecommercenews.jpg',
+  'eShow Barcelona': '/images/speaking-panel.jpg',
+};
 ---
 
 <section id="ponencias" class="py-32 border-t border-white/5 bg-zinc-950">
@@ -15,7 +22,6 @@ const { t } = Astro.props;
       </div>
       <div class="lg:col-span-2">
         <p class="text-muted leading-relaxed mb-8">{t.speaking.description}</p>
-        <!-- Topics -->
         <div>
           <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">{t.speaking.topicsTitle}</p>
           <div class="flex flex-wrap gap-2">
@@ -29,36 +35,38 @@ const { t } = Astro.props;
       </div>
     </div>
 
-    <!-- Talks list -->
+    <!-- Talks with integrated photos -->
     <div class="space-y-3 mb-16">
-      {t.speaking.talks.map((talk: any, i: number) => (
-        <div class="group flex flex-col md:flex-row md:items-center gap-4 p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-all">
-          <div class="flex-shrink-0 w-8 text-muted text-xs font-mono">{String(i + 1).padStart(2, '0')}</div>
-          <div class="flex-1 min-w-0">
-            <p class="text-xs text-muted mb-1">{talk.event} · {talk.location} · {talk.date}</p>
-            <p class="text-sm font-medium text-white leading-snug">{talk.title}</p>
-            <p class="text-xs text-muted mt-1">{talk.audience}</p>
+      {t.speaking.talks.map((talk: any, i: number) => {
+        const photo = talkPhotos[talk.event];
+        return photo ? (
+          <div class="group grid md:grid-cols-2 rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-white/10 transition-all">
+            <div class="relative overflow-hidden min-h-[200px]">
+              <img src={photo} alt={talk.event} class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-6 flex flex-col justify-center gap-2">
+              <p class="text-xs text-muted">{talk.event} · {talk.location} · {talk.date}</p>
+              <p class="text-base font-bold text-white leading-snug">{talk.title}</p>
+              <p class="text-xs text-muted">{talk.audience}</p>
+              {talk.lang === 'EN' && (
+                <span class="self-start text-xs font-bold px-2 py-1 rounded bg-accent/10 text-accent border border-accent/20">EN</span>
+              )}
+            </div>
           </div>
-          {talk.lang === 'EN' && (
-            <span class="flex-shrink-0 text-xs font-bold px-2 py-1 rounded bg-accent/10 text-accent border border-accent/20">EN</span>
-          )}
-        </div>
-      ))}
-    </div>
-
-    <!-- Photo gallery -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-16">
-      {[
-        { src: '/images/speaking-eshow-audience.jpg', alt: 'E-Show Madrid' },
-        { src: '/images/speaking-idealo.jpg', alt: 'Idealo Berlin' },
-        { src: '/images/speaking-mts23.jpg', alt: 'Madrid Tech Show 2023' },
-        { src: '/images/speaking-panel.jpg', alt: 'Panel discussion' },
-        { src: '/images/speaking-ecommercenews.jpg', alt: 'Ecommerce News Congress' },
-      ].map((photo) => (
-        <div class="overflow-hidden rounded-xl aspect-video">
-          <img src={photo.src} alt={photo.alt} class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
-        </div>
-      ))}
+        ) : (
+          <div class="group flex flex-col md:flex-row md:items-center gap-4 p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-all">
+            <div class="flex-shrink-0 w-8 text-muted text-xs font-mono">{String(i + 1).padStart(2, '0')}</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs text-muted mb-1">{talk.event} · {talk.location} · {talk.date}</p>
+              <p class="text-sm font-medium text-white leading-snug">{talk.title}</p>
+              <p class="text-xs text-muted mt-1">{talk.audience}</p>
+            </div>
+            {talk.lang === 'EN' && (
+              <span class="flex-shrink-0 text-xs font-bold px-2 py-1 rounded bg-accent/10 text-accent border border-accent/20">EN</span>
+            )}
+          </div>
+        );
+      })}
     </div>
 
     <!-- CTA -->

@@ -3,6 +3,15 @@ interface Props {
   t: any;
 }
 const { t } = Astro.props;
+
+const pressImages: Record<string, string> = {
+  'EITB Teknopolis': '/images/press-eitb.png',
+  'Cadena SER': '/images/press-cadena-ser.png',
+  'CMD Sport': '/images/press-cmd-sport.png',
+  'Startup.info': '/images/press-startup-info.png',
+  'Naiz': '/images/press-naiz.png',
+  'Grupo SPRI': '/images/press-spri.png',
+};
 ---
 
 <section id="prensa" class="py-32 border-t border-white/5 bg-black">
@@ -32,11 +41,23 @@ const { t } = Astro.props;
       ))}
     </div>
 
-    <div class="grid md:grid-cols-2 gap-4">
+    <!-- Press cards with clipping screenshots -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {t.press.items.map((item: { outlet: string; title: string }) => (
-        <div class="group p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-all">
-          <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">{item.outlet}</p>
-          <p class="text-sm text-white/80 leading-snug">"{item.title}"</p>
+        <div class="group rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-white/10 transition-all">
+          {pressImages[item.outlet] && (
+            <div class="overflow-hidden h-40">
+              <img
+                src={pressImages[item.outlet]}
+                alt={item.outlet}
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
+          <div class="p-5">
+            <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-2">{item.outlet}</p>
+            <p class="text-sm text-white/80 leading-snug">"{item.title}"</p>
+          </div>
         </div>
       ))}
     </div>
