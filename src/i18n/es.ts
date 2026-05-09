@@ -5,6 +5,7 @@ export const es = {
     runnea: 'Runnea',
     speaking: 'Ponencias',
     press: 'Prensa',
+    personal: 'Personal',
     contact: 'Contacto',
     langSwitch: 'EN',
     langSwitchUrl: '/en',
@@ -115,6 +116,39 @@ export const es = {
     topics: ['SEO & Crecimiento orgánico', 'eCommerce & Affiliate', 'Cookies & Privacidad', 'Datos aplicados al negocio', 'Sport Tech & Innovación', 'Turismo deportivo'],
     cta: '¿Quieres que hable en tu evento?',
     ctaLink: '#contacto',
+  },
+  personal: {
+    title: 'Fuera del trabajo',
+    description: 'El deporte, la familia y la curiosidad definen también quién soy.',
+    basketball: {
+      label: 'Baloncesto',
+      title: 'Entrenador del Benjamín C · Basquet Barakaldo',
+      description: 'El deporte base es una de las mejores inversiones que puede hacer una sociedad.',
+    },
+    running: {
+      label: 'Running',
+      title: 'UTMB MCC 2024 — Chamonix',
+      description: 'Correr es mi forma de desconectar y reconectar.',
+    },
+    trail: {
+      title: 'Trail runner en Asia, Europa y donde haga falta',
+    },
+    padel: {
+      title: 'Pádel',
+      description: 'Otra forma de competir, sudar y desconectar.',
+    },
+    family: {
+      title: 'Padre de dos hijos',
+      description: 'Mi mayor proyecto.',
+    },
+    projects: {
+      title: 'Proyectos propios',
+      description: 'MisCromos.es — comparador de cromos de fútbol. Siempre con algo en marcha.',
+    },
+    cta: {
+      title: 'Siempre abierto a una conversación',
+      description: 'Soy muy inquieto y curioso. Si tienes algo interesante que contar, escríbeme. Me gusta conocer personas, ideas y proyectos que me hagan aprender.',
+    },
   },
   press: {
     title: 'Prensa',

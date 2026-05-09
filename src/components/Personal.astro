@@ -1,0 +1,110 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+---
+
+<section id="personal" class="py-32 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-3 gap-16 mb-16">
+      <div>
+        <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-3">05</p>
+        <h2 class="text-3xl font-black">{t.personal.title}</h2>
+      </div>
+      <div class="lg:col-span-2">
+        <p class="text-muted leading-relaxed">{t.personal.description}</p>
+      </div>
+    </div>
+
+    <!-- Row 1: Basketball (large) + UTMB -->
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+
+      <div class="md:col-span-2 group relative rounded-2xl overflow-hidden min-h-[260px]">
+        <img
+          src="/images/personal-basketball.jpg"
+          alt="Equipo de baloncesto"
+          class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <p class="text-accent text-xs font-semibold uppercase tracking-widest mb-1">🏀 {t.personal.basketball.label}</p>
+          <p class="text-white font-bold text-lg leading-tight">{t.personal.basketball.title}</p>
+          <p class="text-white/70 text-sm mt-1">{t.personal.basketball.description}</p>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden min-h-[260px]">
+        <img
+          src="/images/personal-utmb.jpg"
+          alt="UTMB MCC 2024"
+          class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-5">
+          <p class="text-accent text-xs font-semibold uppercase tracking-widest mb-1">🏔️ {t.personal.running.label}</p>
+          <p class="text-white font-bold leading-tight">{t.personal.running.title}</p>
+          <p class="text-white/70 text-sm mt-1">{t.personal.running.description}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Trail photo + text cards -->
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+
+      <div class="group relative rounded-2xl overflow-hidden min-h-[220px]">
+        <img
+          src="/images/personal-trail.jpg"
+          alt="Trail running"
+          class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-5">
+          <p class="text-accent text-xs font-semibold uppercase tracking-widest mb-1">⛰️ Trail</p>
+          <p class="text-white font-bold leading-tight">{t.personal.trail.title}</p>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface border border-white/5 flex flex-col gap-6 justify-center">
+        <div>
+          <p class="text-lg mb-1">🎾</p>
+          <p class="font-bold text-white">{t.personal.padel.title}</p>
+          <p class="text-muted text-sm mt-1">{t.personal.padel.description}</p>
+        </div>
+        <div class="border-t border-white/5 pt-5">
+          <p class="text-lg mb-1">👨‍👧‍👦</p>
+          <p class="font-bold text-white">{t.personal.family.title}</p>
+          <p class="text-muted text-sm mt-1">{t.personal.family.description}</p>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface border border-white/5 flex flex-col justify-between">
+        <div>
+          <p class="text-lg mb-1">🎴</p>
+          <p class="font-bold text-white mb-2">{t.personal.projects.title}</p>
+          <p class="text-muted text-sm leading-relaxed">{t.personal.projects.description}</p>
+        </div>
+        <a
+          href="https://www.miscromos.es"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
+        >
+          miscromos.es →
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Open to conversation CTA -->
+    <div class="p-8 rounded-2xl bg-surface border border-white/5">
+      <div class="max-w-2xl">
+        <p class="text-xl font-bold text-white mb-3">{t.personal.cta.title}</p>
+        <p class="text-muted leading-relaxed">{t.personal.cta.description}</p>
+      </div>
+    </div>
+
+  </div>
+</section>

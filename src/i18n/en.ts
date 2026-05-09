@@ -5,6 +5,7 @@ export const en = {
     runnea: 'Runnea',
     speaking: 'Speaking',
     press: 'Press',
+    personal: 'Personal',
     contact: 'Contact',
     langSwitch: 'ES',
     langSwitchUrl: '/es',
@@ -115,6 +116,39 @@ export const en = {
     topics: ['SEO & Organic Growth', 'eCommerce & Affiliate', 'Cookies & Privacy', 'Data-driven business', 'Sport Tech & Innovation', 'Sports Tourism'],
     cta: 'Book me for your event',
     ctaLink: '#contact',
+  },
+  personal: {
+    title: 'Off the clock',
+    description: 'Sport, family and curiosity define who I am beyond work.',
+    basketball: {
+      label: 'Basketball',
+      title: 'Youth coach · Benjamín C · Basquet Barakaldo',
+      description: 'Youth sport is one of the best investments a society can make.',
+    },
+    running: {
+      label: 'Running',
+      title: 'UTMB MCC 2024 — Chamonix',
+      description: 'Running is how I disconnect and reconnect.',
+    },
+    trail: {
+      title: 'Trail runner — Asia, Europe and wherever the trail leads',
+    },
+    padel: {
+      title: 'Padel',
+      description: 'Another way to compete, sweat and switch off.',
+    },
+    family: {
+      title: 'Father of two',
+      description: 'My biggest project.',
+    },
+    projects: {
+      title: 'Side projects',
+      description: 'MisCromos.es — football sticker price tracker. Always something on the go.',
+    },
+    cta: {
+      title: 'Always up for a conversation',
+      description: 'I am restless and curious. If you have something interesting to share, reach out. I love meeting people, ideas and projects that make me learn.',
+    },
   },
   press: {
     title: 'Press',
