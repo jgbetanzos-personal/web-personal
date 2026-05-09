@@ -7,7 +7,7 @@ export default {
         accent: '#a3e635',
         'accent-dark': '#84cc16',
         surface: '#111111',
-        muted: '#737373',
+        muted: '#a3a3a3',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
