@@ -172,6 +172,6 @@ export const es = {
     or: 'O contacta directamente',
   },
   footer: {
-    copy: '© 2025 Jorge García Betanzos',
+    copy: '© 2026 Jorge García Betanzos',
   },
 };
