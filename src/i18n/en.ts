@@ -122,7 +122,7 @@ export const en = {
     description: 'Sport, family and curiosity define who I am beyond work.',
     basketball: {
       label: 'Basketball',
-      title: 'Youth coach · Benjamín C · Basquet Barakaldo',
+      title: 'Youth coach · Mini Masculino · Salesianos Barakaldo',
       description: 'Youth sport is one of the best investments a society can make.',
     },
     running: {
@@ -154,12 +154,12 @@ export const en = {
     title: 'Press',
     description: 'Media appearances in national and international outlets.',
     items: [
-      { outlet: 'EITB Teknopolis', title: 'RUNNEA — Technology to run better' },
+      { outlet: 'Grupo SPRI', title: 'Runnea recognised in the Awin Power 100' },
+      { outlet: 'Startup.info', title: 'Innovation has to Come from Always Being Nonconformist' },
       { outlet: 'Cadena SER', title: 'A coach with 5,000 runners in his charge' },
       { outlet: 'CMD Sport', title: 'Runnea surpassed 10 million users in 2022' },
-      { outlet: 'Startup.info', title: 'Innovation has to Come from Always Being Nonconformist' },
       { outlet: 'Naiz', title: '"There has not been a single day I did not want to keep fighting"' },
-      { outlet: 'Grupo SPRI', title: 'Runnea recognised in the Awin Power 100' },
+      { outlet: 'EITB Teknopolis', title: 'RUNNEA — Technology to run better' },
     ],
   },
   contact: {

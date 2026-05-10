@@ -122,7 +122,7 @@ export const es = {
     description: 'El deporte, la familia y la curiosidad definen también quién soy.',
     basketball: {
       label: 'Baloncesto',
-      title: 'Entrenador del Benjamín C · Basquet Barakaldo',
+      title: 'Entrenador del Mini Masculino de Salesianos Barakaldo',
       description: 'El deporte base es una de las mejores inversiones que puede hacer una sociedad.',
     },
     running: {
@@ -154,12 +154,12 @@ export const es = {
     title: 'Prensa',
     description: 'Apariciones en medios nacionales e internacionales.',
     items: [
-      { outlet: 'EITB Teknopolis', title: 'RUNNEA — Tecnología para correr mejor' },
+      { outlet: 'Grupo SPRI', title: 'Runnea es reconocida en el Awin Power 100' },
+      { outlet: 'Startup.info', title: 'Innovation has to Come from Always Being Nonconformist' },
       { outlet: 'Cadena SER', title: 'Un entrenador con 5000 runners a su cargo' },
       { outlet: 'CMD Sport', title: 'Runnea rebasó los 10 millones de usuarios en 2022' },
-      { outlet: 'Startup.info', title: 'Innovation has to Come from Always Being Nonconformist' },
       { outlet: 'Naiz', title: '«No ha habido un solo día que no haya querido seguir peleando»' },
-      { outlet: 'Grupo SPRI', title: 'Runnea es reconocida en el Awin Power 100' },
+      { outlet: 'EITB Teknopolis', title: 'RUNNEA — Tecnología para correr mejor' },
     ],
   },
   contact: {
