@@ -12,8 +12,8 @@ export const en = {
   },
   hero: {
     greeting: "Hi, I'm",
-    name: 'Jorge García Betanzos',
-    tagline: 'Founder. Speaker. Runner.',
+    name: 'Jorge Betanzos',
+    tagline: 'I grow digital businesses without paying for traffic.',
     description:
       'CEO and co-founder of Runnea, Europe\'s leading running community. 12 years building a 1.5M monthly visits business on pure organic SEO, technology, and a passion for sport.',
     cta: 'See talks',
@@ -22,7 +22,7 @@ export const en = {
   about: {
     title: 'About me',
     paragraphs: [
-      'I started as a PHP developer at Sarenet, spending over a decade learning how to build digital products from scratch — databases, backend, frontend, the whole stack.',
+      'My full name is Jorge García Betanzos, though I go by Jorge Betanzos. I started as a PHP developer at Sarenet, spending over a decade learning how to build digital products from scratch — databases, backend, frontend, the whole stack.',
       'In 2014 I co-founded Runnea with a team driven by a love for running. No external funding, zero paid traffic. We built the reference community for runners across Spain, France, Italy, Germany, and the UK.',
       'Today I lead business strategy and commercial partnerships with brands like Nike, Adidas, Asics, Decathlon, and more than 3,000 B2B partners. I also mentor at SeedRocket and the Inspira STEAM programme at the University of Deusto.',
     ],
@@ -153,7 +153,9 @@ export const en = {
   press: {
     title: 'Press',
     description: 'Media appearances in national and international outlets.',
+    read: 'Read article',
     items: [
+      { outlet: 'Ecommerce News', title: 'The affiliate model is broken, but it can be fixed', url: 'https://ecommerce-news.es/el-modelo-de-afiliacion-esta-roto-pero-se-puede-arreglar/' },
       { outlet: 'Grupo SPRI', title: 'Runnea recognised in the Awin Power 100' },
       { outlet: 'Startup.info', title: 'Innovation has to Come from Always Being Nonconformist' },
       { outlet: 'Cadena SER', title: 'A coach with 5,000 runners in his charge' },
@@ -172,6 +174,6 @@ export const en = {
     or: 'Or reach me directly',
   },
   footer: {
-    copy: '© 2025 Jorge García Betanzos',
+    copy: '© 2026 Jorge Betanzos',
   },
 };

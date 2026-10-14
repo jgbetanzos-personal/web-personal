@@ -12,8 +12,8 @@ export const es = {
   },
   hero: {
     greeting: 'Hola, soy',
-    name: 'Jorge García Betanzos',
-    tagline: 'Founder. Speaker. Runner.',
+    name: 'Jorge Betanzos',
+    tagline: 'Hago crecer negocios digitales sin pagar por tráfico.',
     description:
       'CEO y cofundador de Runnea, la comunidad líder del running en Europa. 12 años construyendo un negocio de 1.5M visitas mensuales con SEO orgánico, tecnología y pasión por el deporte.',
     cta: 'Ver ponencias',
@@ -22,7 +22,7 @@ export const es = {
   about: {
     title: 'Sobre mí',
     paragraphs: [
-      'Empecé como programador PHP en Sarenet, donde pasé más de diez años aprendiendo a construir productos digitales desde cero. Diseñé bases de datos, escribí código y entendí cómo funciona internet por dentro.',
+      'Me llamo Jorge García Betanzos, aunque firmo como Jorge Betanzos. Empecé como programador PHP en Sarenet, donde pasé más de diez años aprendiendo a construir productos digitales desde cero. Diseñé bases de datos, escribí código y entendí cómo funciona internet por dentro.',
       'En 2014 cofundé Runnea junto a un equipo apasionado por el running. Sin inversión externa y con tracción 100% orgánica, construimos la comunidad de referencia para runners en España, Francia, Italia, Alemania y Reino Unido.',
       'Hoy lidero la estrategia de negocio y los acuerdos comerciales con marcas como Nike, Adidas, Asics, Decathlon y más de 3.000 partners B2B. También soy mentor en SeedRocket y en el programa Inspira STEAM de la Universidad de Deusto.',
     ],
@@ -153,7 +153,9 @@ export const es = {
   press: {
     title: 'Prensa',
     description: 'Apariciones en medios nacionales e internacionales.',
+    read: 'Leer artículo',
     items: [
+      { outlet: 'Ecommerce News', title: 'El modelo de afiliación está roto, pero se puede arreglar', url: 'https://ecommerce-news.es/el-modelo-de-afiliacion-esta-roto-pero-se-puede-arreglar/' },
       { outlet: 'Grupo SPRI', title: 'Runnea es reconocida en el Awin Power 100' },
       { outlet: 'Startup.info', title: 'Innovation has to Come from Always Being Nonconformist' },
       { outlet: 'Cadena SER', title: 'Un entrenador con 5000 runners a su cargo' },
@@ -172,6 +174,6 @@ export const es = {
     or: 'O contacta directamente',
   },
   footer: {
-    copy: '© 2026 Jorge García Betanzos',
+    copy: '© 2026 Jorge Betanzos',
   },
 };

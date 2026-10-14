@@ -5,6 +5,7 @@ interface Props {
 const { t } = Astro.props;
 
 const pressImages: Record<string, string> = {
+  'Ecommerce News': '/images/press-ecommercenews.jpg',
   'EITB Teknopolis': '/images/press-eitb.png',
   'Cadena SER': '/images/press-cadena-ser.png',
   'CMD Sport': '/images/press-cmd-sport.png',
@@ -29,23 +30,34 @@ const pressImages: Record<string, string> = {
 
     <!-- Press cards with clipping screenshots -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {t.press.items.map((item: { outlet: string; title: string }) => (
-        <div class="group rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-white/10 transition-all">
-          {pressImages[item.outlet] && (
-            <div class="overflow-hidden h-56">
-              <img
-                src={pressImages[item.outlet]}
-                alt={item.outlet}
-                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-              />
+      {t.press.items.map((item: { outlet: string; title: string; url?: string }, i: number) => {
+        const Tag = item.url ? 'a' : 'div';
+        const featured = i === 0;
+        return (
+          <Tag
+            {...(item.url ? { href: item.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
+            class:list={[
+              'group rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-white/10 transition-all',
+              featured && 'md:col-span-2 lg:col-span-3 md:flex',
+            ]}
+          >
+            {pressImages[item.outlet] && (
+              <div class:list={['overflow-hidden h-56', featured && 'md:h-auto md:min-h-72 md:w-3/5 md:shrink-0']}>
+                <img
+                  src={pressImages[item.outlet]}
+                  alt={item.outlet}
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
+            <div class:list={['p-5', featured && 'md:p-10 md:flex md:flex-col md:justify-center']}>
+              <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-2">{item.outlet}</p>
+              <p class:list={['text-white/80 leading-snug', featured ? 'text-sm md:text-2xl md:font-bold md:text-white' : 'text-sm']}>"{item.title}"</p>
+              {item.url && <p class="text-xs text-muted mt-4 group-hover:text-accent transition-colors">{t.press.read} →</p>}
             </div>
-          )}
-          <div class="p-5">
-            <p class="text-accent text-xs font-semibold tracking-widest uppercase mb-2">{item.outlet}</p>
-            <p class="text-sm text-white/80 leading-snug">"{item.title}"</p>
-          </div>
-        </div>
-      ))}
+          </Tag>
+        );
+      })}
     </div>
 
   </div>
