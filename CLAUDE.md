@@ -16,11 +16,10 @@ Static single-page portfolio. **Astro 4 + Tailwind CSS**. No SSR, no framework c
 
 ### Routing & i18n
 
-Two locales served as separate routes: `/es` and `/`. Root redirects to `/es`.
+Two locales served as separate routes: `/es` and `/en`. Root `/` redirects to `/es` via `vercel.json` (edge redirect, so `/` 404s in `npm run dev`).
 
 ```
 src/pages/
-  index.astro          # redirects to /es
   es/index.astro       # Spanish page
   en/index.astro       # English page
 src/i18n/
